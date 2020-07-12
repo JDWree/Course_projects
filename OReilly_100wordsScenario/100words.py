@@ -20,7 +20,6 @@ def user_input():
         print("Please retry.")
         user_input()
 
-
 def words_in_book(filename):
     """Takes a readable textfile as argument and returns the list of words."""
     with open(filename,"r") as f:
@@ -67,27 +66,20 @@ def print_top_words(dicti, counts = 100):
     """Takes an ordered dictionary of word occurrence as argument 
     and an optional counts argument,
     returns the top counts of words in the dictionary."""
-    
-    
+        
     top_words= list(dicti.keys())[:counts]
 
     for i in range(counts):
         key = top_words[i]
         print(i+1, key, ":", dicti[key])
     
-
-
-
-
 def main():
     textfile = user_input()
     words = words_in_book(textfile)
     filterd_words = filter_words(words, True)
     dicti = create_sorted_dictionary(filterd_words)
     print_top_words(dicti)
-    
-    
-    
+        
 main()
 # Tested with "Moby Dick; or, the whale" by Herman Melville, obtained from 'gutenberg.org'
 # And with "Harry Potter: The Philosopher's Stone" by J.K. Rowling, obtained from https://github.com/formcept/whiteboard/blob/master/nbviewer/notebooks/data/harrypotter/Book%201%20-%20The%20Philosopher's%20Stone.txt       
